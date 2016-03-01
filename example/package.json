@@ -1,0 +1,13 @@
+{
+  "name": "InfiniteScrollViewExample",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "moment": "^2.11.2",
+    "react-native": "^0.20.0",
+    "react-native-infinite-scrollview": "^0.1.1"
+  }
+}
