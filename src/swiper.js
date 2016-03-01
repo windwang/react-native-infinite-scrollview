@@ -1,11 +1,10 @@
 import React, {
   Component,
-  PanResponder,
   View,
   ScrollView,
 } from 'react-native';
 
-export default class Swiper extends Component {
+export default class InfiniteScrollView extends Component {
   constructor(props) {
     super(props);
     this._scrollView = null;
