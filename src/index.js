@@ -51,30 +51,36 @@ export default class InfiniteScrollView extends Component {
       pages = this._createPages(range);  
     }
     return (
-      <View style={this.props.style} onLayout={(event) => this._layoutChanged(event)}>
-        <ScrollView 
-          style={{overflow: 'visible'}}
-          ref={(scrollView) => { this._scrollView = scrollView; }}
-          horizontal={this.props.horizontal}
-          automaticallyAdjustContentInsets={false}
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-          pagingEnabled={true}
-          onMomentumScrollEnd={(e) => this._scrollEnded(e)}>
-          {pages}
-        </ScrollView>
-      </View>
+      <ScrollView 
+        {...this.props}
+        ref={(scrollView) => {this._scrollView = scrollView}}
+        onLayout={(e) => this._layoutChanged(e)}
+        pagingEnabled={true}
+        onMomentumScrollEnd={(e) => this._onMomentumScrollEnd(e)}>
+        {pages}
+      </ScrollView>
     );
   }
   _layoutChanged(event) {
     var {x, y, width, height} = event.nativeEvent.layout;
-
     this.setState({
       size: {
         width: width,
         height: height
       }
     });
+    if(this.props.onLayout) {
+      this.props.onLayout(event);
+    }
+  }
+  _onMomentumScrollEnd(event) {
+    var scrollIndex = Math.round(this.props.horizontal ? event.nativeEvent.contentOffset.x / this.state.size.width : event.nativeEvent.contentOffset.y / this.state.size.height);
+    var index = this.state.index + scrollIndex - Math.min(this._offscreenPages, this.state.index - this.state.fromIndex) - Math.max(0, this._offscreenPages + this.state.index - this.state.toIndex); 
+    this.setState({index: index});
+
+    if(this.props.onMomentumScrollEnd) {
+      this.props.onMomentumScrollEnd(event);
+    }
   }
   _pagesRange(state) {
     var range = {};
@@ -97,10 +103,5 @@ export default class InfiniteScrollView extends Component {
         {this.props.renderPage(index)}
       </View>
     );
-  }
-  _scrollEnded(event) {
-    var scrollIndex = Math.round(this.props.horizontal ? event.nativeEvent.contentOffset.x / this.state.size.width : event.nativeEvent.contentOffset.y / this.state.size.height);
-    var index = this.state.index + scrollIndex - Math.min(this._offscreenPages, this.state.index - this.state.fromIndex) - Math.max(0, this._offscreenPages + this.state.index - this.state.toIndex); 
-    this.setState({index: index});
   }
 }
