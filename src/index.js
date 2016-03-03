@@ -8,11 +8,14 @@ export default class InfiniteScrollView extends Component {
   constructor(props) {
     super(props);
 
-    var fromIndex = props.fromIndex || Number.NEGATIVE_INFINITY;
-    var toIndex = props.toIndex || Number.POSITIVE_INFINITY;
+    var fromIndex = Number.NEGATIVE_INFINITY;
+    if(props.fromIndex % 1 === 0) fromIndex = props.fromIndex;
+
+    var toIndex = Number.POSITIVE_INFINITY;
+    if(props.toIndex % 1 === 0) toIndex = props.toIndex;
 
     var index = 0;
-    if(this.props.index) index = Math.min(Math.max(this.props.index, fromIndex), toIndex);
+    if(this.props.index % 1 === 0) index = Math.min(Math.max(this.props.index, fromIndex), toIndex);
     else index = Math.max(0, fromIndex);
 
     this._scrollView = null;
