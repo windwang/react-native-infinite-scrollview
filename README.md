@@ -21,8 +21,9 @@ Component wraps ScrollView so all ScrollView properties are available.
 - **renderPage** - Required - (Function) - Must return a component representing the page for the provided index.
 - **offScreenPages** - Optional - (Integer) - Number of pages to render before and after the current page. Default is 1 (total 3 pages are rendered).
 - **index** - Optional - (Integer) - Start the scrollview with this index. Default is 0 or toIndex whichever is greater.
-- **toIndex** - Optional - (Integer) - Don't allow scrolling below this page index
-- **fromIndex** - Optional - (Integer) - Don't allow scrolling above this page index
+- **toIndex** - Optional - (Integer) - Don't allow scrolling below this page index.
+- **fromIndex** - Optional - (Integer) - Don't allow scrolling above this page index.
+- **onPageIndexChange** - Optional - (Function) - Called when page index is changed (user scrolled).
 
 ### Questions?
 Feel free to contact me via
