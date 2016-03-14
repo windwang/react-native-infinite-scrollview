@@ -12,9 +12,7 @@ import React, {
 export default class App extends Component {
   render() {
   	return (
-  		<View style={styles.container}>
-  			<InfiniteScrollView style={styles.scrollview} horizontal={true} offScreenPages={1} renderPage={(index) => this._renderPage(index)}/>
-  		</View>
+			<InfiniteScrollView style={styles.scrollview} horizontal={true} offScreenPages={1} renderPage={(index) => this._renderPage(index)}/>
   	);
   }
   _renderPage(index) {
@@ -30,12 +28,6 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    backgroundColor: '#FCFCFC',
-  },
   scrollview: {
   	flex: 1,
     backgroundColor: '#031634',

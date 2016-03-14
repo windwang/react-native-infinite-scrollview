@@ -1,6 +1,6 @@
 ## react-native-infinite-scrollview
 [![npm version](https://badge.fury.io/js/react-native-infinite-scrollview.svg)](https://www.npmjs.com/package/react-native-infinite-scrollview)
-[![react-native platform](https://img.shields.io/badge/platform-ios-blue.svg)]
+![react-native platform](https://img.shields.io/badge/platform-ios-blue.svg)
 
 ScrollView with infinte paged scrolling (no looping). The number of pages rendered before and after current page can be customized. Pages are rendered when user scrolled.
 

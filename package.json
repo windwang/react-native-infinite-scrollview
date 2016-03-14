@@ -1,8 +1,8 @@
 {
   "name": "react-native-infinite-scrollview",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "ScrollView with infinte paged scrolling (no looping). The number of pages rendered before and after current page can be customized. Pages are rendered when user scrolled.",
-  "main": "src/index.js",
+  "main": "src",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
