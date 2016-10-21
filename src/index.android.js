@@ -1,5 +1,5 @@
  import React, { Component } from 'react';
-  import { View,crollView } from 'react-native';
+  import { View,ScrollView } from 'react-native';
 
 
 export default class InfiniteScrollView extends Component {
