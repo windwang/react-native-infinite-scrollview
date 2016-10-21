@@ -113,7 +113,7 @@ export default class InfiniteScrollView extends Component {
     if(!props) props = this.props;
     var index = 0;
     if(props.index % 1 === 0) index = Math.min(Math.max(props.index, this._fromIndex(props)), this._toIndex(props));
-    else index = Math.max(0, _this._fromIndex(props));
+    else index = Math.max(0,this._fromIndex(props));
     return index;
   }
 }
