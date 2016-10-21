@@ -1,8 +1,6 @@
-import React, {
-  Component,
-  View,
-  ScrollView,
-} from 'react-native';
+ import React, { Component } from 'react';
+  import { View,crollView } from 'react-native';
+
 
 export default class InfiniteScrollView extends Component {
   constructor(props) {
